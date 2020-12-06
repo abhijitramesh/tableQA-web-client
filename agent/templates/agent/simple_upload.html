@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <form class="form-popup" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <div class="modal-header">
+    <input type="file" name="myfile">
+     </div>
+      <div class="modal-body">
+          <label>Enter Your Query</label>
+    <input type="text" name="query">
+    <button type="submit">Submit</button>
+      </div>
+  </form>
+
+  {% if database_result %}
+    <p>  {{ database_result }}</p>
+  {% endif %}
+{% if database_query %}
+    <p> {{ database_query }}</p>
+  {% endif %}
+
+{% endblock %}
